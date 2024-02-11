@@ -22,7 +22,9 @@ class AppBarExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: const Icon(Icons.menu), onPressed: (){},),
         title: const Text('AppBar Demo'),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add_alert),
