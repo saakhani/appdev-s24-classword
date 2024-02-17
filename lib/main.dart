@@ -1,36 +1,78 @@
 import 'package:flutter/material.dart';
 
-/// Flutter code sample for [AppBar].
+void main() => runApp(LoginPage());
 
-void main() => runApp(const AppBarApp());
-
-class AppBarApp extends StatelessWidget {
-  const AppBarApp({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
-        useMaterial3: false,
-      ),
-      home: const AppBarExample(),
-    );
-  }
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class AppBarExample extends StatelessWidget {
-  const AppBarExample({super.key});
+class _LoginPageState extends State<LoginPage> {
+  // TODO: Add text editing controllers (101)
+
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-        centerTitle: true,
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          children: <Widget>[
+            const SizedBox(height: 80.0),
+            Column(
+              children: <Widget>[
+                Image.asset('assets/diamond.png'),
+                const SizedBox(height: 16.0),
+                const Text('SHRINE'),
+              ],
+            ),
+            const SizedBox(height: 240.0),
+            // TODO: Remove filled: true values (103)
+            // [Name]
+            TextField(
+              controller: _usernameController,
+              decoration: const InputDecoration(
+                filled: true,
+                labelText: 'Username',
+              ),
+            ),
+            // spacer
+            const SizedBox(height: 12.0),
+            // [Password]
+          TextField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                filled: true,
+                labelText: 'Password',
+              ),
+              obscureText: true,
+            ),
+            // TODO: Add button bar (101)
+            OverflowBar(
+              alignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  onPressed: (){
+                    _usernameController.clear();
+                    _passwordController.clear();
+                  }, 
+                  child: const Text("Cancel")
+                ),
+                ElevatedButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  }, 
+                  child: const Text("Login")
+                ),
+              ],
+            )
+          ],
+        ),
       ),
-      floatingActionButton:
-          FloatingActionButton.extended(onPressed: () {}, label: const Text("login")),
     );
   }
 }
