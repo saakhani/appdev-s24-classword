@@ -34,7 +34,18 @@ class HomePage extends StatelessWidget {
           ),
         title: const Text('SHRINE'),
         actions: <Widget>[
-          IconButton(onPressed: onPressed, icon: icon)
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              semanticLabel: 'search'),
+            onPressed: (){print("Search Button")},
+          ),
+          IconButton(
+            icon: const Icon(
+              Icons.tune,
+              semanticLabel: 'filter'),
+            onPressed: (){print("Filter Button")},
+          )
         ],
       ),
       // TODO: Add a grid view (102)
