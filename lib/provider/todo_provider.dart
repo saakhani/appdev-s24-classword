@@ -1,7 +1,5 @@
 import 'package:classwork/model/todo.dart';
 import 'package:classwork/service/todo_service.dart';
-
-
 import 'package:flutter/material.dart';
 
 class TodoProvider extends ChangeNotifier {
@@ -9,6 +7,7 @@ class TodoProvider extends ChangeNotifier {
   bool isLoading = false;
   List<Todo> _todos = [];
   List<Todo> get todos => _todos;
+  
   Future<void> getAllTodos() async {
     isLoading = true;
     notifyListeners();
