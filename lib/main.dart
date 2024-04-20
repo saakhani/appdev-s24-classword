@@ -1,5 +1,6 @@
 import 'package:classwork/screens/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,4 +17,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() => runApp(MyApp());
+void main() => runApp(ProviderScope(child: MyApp()));
