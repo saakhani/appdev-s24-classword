@@ -1,4 +1,3 @@
-import 'package:classwork/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,9 +10,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const HomePage(),
     );
   }
 }
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
+
+class Area {
+  static double get pi => 3.141592;
+
+  double circle(double radius) {
+    return pi * radius.square;
+  }
+
+  double rectangle(double length, double width) {
+    return length * width;
+  }
+}
+
+extension NumSquare on num {
+  num get square => this * this;
+}
