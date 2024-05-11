@@ -6,9 +6,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Products',
-      theme: ThemeData(
-        useMaterial3: true,
+        title: 'Products',
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        home: HomePage());
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("List"),
       ),
     );
   }
@@ -20,7 +36,10 @@ class Area {
   static double get pi => 3.141592;
 
   double circle(double radius) {
-    return pi * radius.square;
+    if (radius < 0) {
+      throw Exception("Radius cannot be negative");
+    }
+    return (pi * radius.square);
   }
 
   double rectangle(double length, double width) {
